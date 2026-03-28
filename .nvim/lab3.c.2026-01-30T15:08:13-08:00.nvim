@@ -1,0 +1,15 @@
+#
+
+int main() {
+  
+  while(1) {
+    printf("Enter input: ");
+
+    nread = getline();
+
+    if (nread == "print\n") {
+    }
+  }
+
+  return 0;
+}
