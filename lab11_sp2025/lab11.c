@@ -10,10 +10,10 @@
 #define GRN "\e[0;32m"
 #define CRESET "\e[0m"
 
-#define handle_error(msg)            \
-  do {                               \
-    perror(msg);                     \
-    exit(EXIT_FAILURE);              \
+#define handle_error(msg)                                                      \
+  do {                                                                         \
+    perror(msg);                                                               \
+    exit(EXIT_FAILURE);                                                        \
   } while (0)
 
 size_t read_all_bytes(const char *filename, void *buffer, size_t buffer_size) {
@@ -106,7 +106,6 @@ int verify(const char *message_path, const char *sign_path, EVP_PKEY *pubkey) {
   // Look at: https://wiki.openssl.org/index.php/EVP_Signing_and_Verifying
   size_t m_len = read_all_bytes(message_path, message, 512);
   size_t s_len = read_all_bytes(sign_path, signature, 512);
-  signature[0] = (signature[0] == 0x00) ? 0xFF : 0x00;
 
   EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
 
